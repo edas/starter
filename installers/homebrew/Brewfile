@@ -136,7 +136,7 @@ cask "joeyhoer/extras/font-san-francisco-compact"
 cask "font-symbola"
 cask "font-fira-code"
 cask "font-source-code-pro"
-cask "sky-fonts"
+cask "skyfonts"
 
 # MAS applications
 # Get a list of installed MAS apps with:
