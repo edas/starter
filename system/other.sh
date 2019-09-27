@@ -4,30 +4,30 @@
 # Other
 ###############################################################################
 
-# Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons
+# Menu bar: hide the Time Machine, User icons
 defaults -currentHost write dontAutoLoad -array \
     "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
-    "/System/Library/CoreServices/Menu Extras/User.menu"
+    "/System/Library/CoreServices/Menu Extras/User.menu" \
+    "/System/Library/CoreServices/Menu Extras/Clock.menu"
 defaults write com.apple.systemuiserver menuExtras -array \
+    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
     "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
     "/System/Library/CoreServices/Menu Extras/VPN.menu" \
     "/System/Library/CoreServices/Menu Extras/Displays.menu" \
     "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-    "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-    "/System/Library/CoreServices/Menu Extras/Clock.menu"
+    "/System/Library/CoreServices/Menu Extras/Battery.menu" 
 
 # Increase window resize speed for Cocoa applications
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+#defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # Opening and closing speed of Quick Look windows
-defaults write NSGlobalDomain QLPanelAnimationDuration -float 0
+#defaults write NSGlobalDomain QLPanelAnimationDuration -float 0
 
 # Opening and closing window animations
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+#defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
 # Disable animated focus ring
-defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
+#defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -38,10 +38,10 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
 # Disable Resume system-wide
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+#defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
 # Disable automatic termination of inactive apps
-defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+#defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Rubber-band scrolling (doesn't affect web views)
 # defaults write NSGlobalDomain NSScrollViewRubberbanding -bool false
@@ -71,7 +71,7 @@ defaults write com.apple.screencapture location -string "$HOME/Pictures"
 defaults write com.apple.screencapture type -string "png"
 
 # Shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
+#defaults write com.apple.screencapture disable-shadow -bool true
 
 # Include date in screenshots
 defaults write com.apple.screencapture include-date -bool true
@@ -140,10 +140,10 @@ sudo ln -s /System/Library/PrivateFrameworks/CoreRecognition.framework/Resources
   /Library/Fonts/CoreRecognition
 
 # Enable Folder Actions
-defaults write com.apple.FolderActionsDispatcher folderActionsEnabled -bool false
+#defaults write com.apple.FolderActionsDispatcher folderActionsEnabled -bool false
 
 # Enable locate command and build locate database
-sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+#sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 
 ###############################################################################
 # Default Applications
@@ -165,3 +165,6 @@ fi
 
 # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+
+# Time format in menu bar
+defaults write "com.apple.menuextra.clock" DateFormat -string "EEE HH:mm"

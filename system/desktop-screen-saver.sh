@@ -15,3 +15,4 @@ defaults -currentHost write com.apple.screensaver idleTime -int 1800
 
 # Show with clock
 defaults -currentHost write com.apple.screensaver showClock -bool false
+

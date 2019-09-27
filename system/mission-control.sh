@@ -5,10 +5,10 @@
 ###############################################################################
 
 # Mission Control animation duration
-defaults write com.apple.dock expose-animation-duration -float 0.1
+#defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Automatically rearrange Spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
+#defaults write com.apple.dock mru-spaces -bool false
 
 # When switching to an application, switch to a Space with open windows for the application
 defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool true

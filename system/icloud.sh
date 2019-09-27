@@ -5,4 +5,4 @@
 ###############################################################################
 
 # Save to iCloud by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool true
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false

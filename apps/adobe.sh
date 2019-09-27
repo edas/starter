@@ -18,4 +18,4 @@ sudo chflags -v hidden /Applications/Utilities/Adobe*
 rm -rf /Applications/Adobe*/Legal* 2>/dev/null
 
 # Remove uninstaller aliases
-rm /Applications/Adobe*/Uninstall* 2>/dev/null
+#rm /Applications/Adobe*/Uninstall* 2>/dev/null

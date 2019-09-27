@@ -10,11 +10,11 @@ connected_service=$(networksetup -listallhardwareports |
 all_services=$(networksetup -listallnetworkservices | sed '1d;s/^\*//g')
 
 # Deactivate unused services
-echo "$all_services" | grep -v "$connected_service" | \
-  xargs -I {} sudo networksetup -setnetworkserviceenabled {} off
+#echo "$all_services" | grep -v "$connected_service" | \
+#  xargs -I {} sudo networksetup -setnetworkserviceenabled {} off
 
 # Show Time Connected in VPN menubar item
-defaults write com.apple.networkConnect VPNShowTime -bool false
+#defaults write com.apple.networkConnect VPNShowTime -bool false
 
 # Show Status When Connecting in VPN menubar item
-defaults write com.apple.networkConnect VPNShowStatus -bool false
+defaults write com.apple.networkConnect VPNShowStatus -bool true

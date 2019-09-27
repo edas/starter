@@ -10,7 +10,7 @@
 # Funk          Glass         Hero          Morse
 # Ping          Pop           Purr          Sosumi
 # Submarine     Tink
-defaults write com.apple.systemsound com.apple.sound.beep.sound -string "/System/Library/Sounds/Blow.aiff"
+defaults write com.apple.systemsound com.apple.sound.beep.sound -string " "
 
 # Play user interface sound effects
 defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool false
@@ -18,8 +18,8 @@ defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool false
 # Play feedback when volume is changed
 defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool false
 
-# Disable flashing the screen when an alert sound occurs (accessibility)
-defaults write NSGlobalDomain com.apple.sound.beep.flash -bool false
+# Enable flashing the screen when an alert sound occurs (accessibility)
+defaults write NSGlobalDomain com.apple.sound.beep.flash -bool true
 
 # Alert volume
 # Slider level:

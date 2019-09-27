@@ -5,10 +5,10 @@
 ###############################################################################
 
 # Create user `Sites` directory
-mkdir -p "$HOME/Sites"
+#mkdir -p "$HOME/Sites"
 
 # Show user `Library` folder
-chflags nohidden "${HOME}/Library"
+#chflags nohidden "${HOME}/Library"
 
 # Create user `bin` directory
 mkdir -p "$HOME/bin"
@@ -20,7 +20,7 @@ chflags -h hidden "${HOME}/bin"
 #defaults write com.apple.finder QuitMenuItem -bool true
 
 # Window animations and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool true
+#defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
@@ -58,13 +58,13 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Arrange by
 # Kind, Name, Application, Date Last Opened,
 # Date Added, Date Modified, Date Created, Size, Tags, None
-defaults write com.apple.finder FXPreferredGroupBy -string "Kind"
+defaults write com.apple.finder FXPreferredGroupBy -string "Name"
 
 # Spring loaded directories
 defaults write NSGlobalDomain com.apple.springing.enabled -bool true
 
 # Delay for spring loaded directories
-defaults write NSGlobalDomain com.apple.springing.delay -float 0
+#defaults write NSGlobalDomain com.apple.springing.delay -float 0
 
 # Writing of .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -127,11 +127,12 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 #   logs : Size
 #   labl : Tags
 /usr/libexec/PlistBuddy \
-    -c "Set :StandardViewOptions:ColumnViewOptions:ColumnShowIcons bool    false" \
-    -c "Set :StandardViewOptions:ColumnViewOptions:FontSize        integer 11"    \
+    -c "Set :StandardViewOptions:ColumnViewOptions:ColumnShowIcons bool    true" \
     -c "Set :StandardViewOptions:ColumnViewOptions:ShowPreview     bool    true"  \
     -c "Set :StandardViewOptions:ColumnViewOptions:ArrangeBy       string  dnam"  \
     ~/Library/Preferences/com.apple.finder.plist
+#    -c "Set :StandardViewOptions:ColumnViewOptions:FontSize        integer 11"    \
+
 
 # New window target
 # Computer     : `PfCm`
@@ -151,10 +152,10 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 defaults write com.apple.finder EmptyTrashSecurely -bool false
 
 # AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+#defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Desktop Enabled
-defaults write com.apple.finder CreateDesktop -bool false
+#defaults write com.apple.finder CreateDesktop -bool false
 
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”

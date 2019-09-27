@@ -4,9 +4,10 @@
 # Sharing
 ###############################################################################
 
+
 # Set computer name (as done via System Preferences → Sharing)
-#sudo scutil --set ComputerName "0x6A796872"
-#sudo scutil --set HostName "0x6A796872"
-#sudo scutil --set LocalHostName "0x6A796872"
-#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server \
-#    NetBIOSName -string "0x6A796872"
+[ -n "$COMPUTER_NAME" ] && sudo scutil --set ComputerName "$COMPUTER_NAME"
+[ -n "$HOST_NAME" ] && sudo scutil --set HostName "$HOST_NAME"
+[ -n "$HOST_NAME" ] && sudo scutil --set LocalHostName "$HOST_NAME"
+[ -n "$HOST_NAME" ] && sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server \
+    NetBIOSName -string "$HOST_NAME"

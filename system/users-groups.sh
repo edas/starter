@@ -5,10 +5,10 @@
 ###############################################################################
 
 # Display login window as: Name and password
-sudo defaults write /Library/Preferences/com.apple.loginwindow "SHOWFULLNAME" -bool true
+#sudo defaults write /Library/Preferences/com.apple.loginwindow "SHOWFULLNAME" -bool true
 
 # Disable automatic login
-sudo defaults delete /Library/Preferences/com.apple.loginwindow autoLoginUser 2>/dev/null
+#sudo defaults delete /Library/Preferences/com.apple.loginwindow autoLoginUser 2>/dev/null
 # Automatic login as current user or "Guest" for guest login
 #sudo defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser -string `whoami`
 

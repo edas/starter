@@ -5,31 +5,31 @@
 ###############################################################################
 
 # Icon size of Dock items
-defaults write com.apple.dock tilesize -int 46
+defaults write com.apple.dock tilesize -int 48
 
 # Lock the Dock size
 defaults write com.apple.dock size-immutable -bool true
 
 # Dock magnification
-defaults write com.apple.dock magnification -bool false
+defaults write com.apple.dock magnification -bool true
 
 # Icon size of magnified Dock items
 defaults write com.apple.dock largesize -int 64
 
 # Minimization effect: 'genie', 'scale', 'suck'
-defaults write com.apple.dock mineffect -string 'scale'
+defaults write com.apple.dock mineffect -string 'genie'
 
 # Prefer tabs when opening documents: 'always', 'fullscreen', 'manual'
-defaults write NSGlobalDomain AppleWindowTabbingMode -string 'always'
+defaults write NSGlobalDomain AppleWindowTabbingMode -string 'fullscreen'
 
 # Dock orientation: 'left', 'bottom', 'right'
-# defaults write com.apple.dock 'orientation' -string 'bottom'
+defaults write com.apple.dock 'orientation' -string 'bottom'
 
 # Dock pinning: 'start', 'middle', 'end'
-# defaults write com.apple.dock pinning -string 'middle'
+defaults write com.apple.dock pinning -string 'middle'
 
 # Lock the Dock position
-# defaults write com.apple.dock position-immutable -bool true
+defaults write com.apple.dock position-immutable -bool true
 
 # Double-click a window's title bar to:
 # None
@@ -38,16 +38,16 @@ defaults write NSGlobalDomain AppleWindowTabbingMode -string 'always'
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize"
 
 # Minimize to application
-defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock minimize-to-application -bool false
 
 # Animate opening applications
-defaults write com.apple.dock launchanim -bool false
+defaults write com.apple.dock launchanim -bool true
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
 # Auto-hide delay
-defaults write com.apple.dock autohide-delay -float 0
+# defaults write com.apple.dock autohide-delay -float 0
 
 # Auto-hide animation duration
 # defaults write com.apple.dock autohide-time-modifier -float 0
@@ -66,9 +66,7 @@ defaults write com.apple.dock 'checked-for-launchpad' -bool true
 
 # Remove all (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
-
-# Lock the Dock contents
-# defaults write com.apple.dock contents-immutable -bool true
+defaults write com.apple.dock persistent-others -array
 
 # Show only open applications in Dock
 # defaults write com.apple.dock static-only -bool true
@@ -81,7 +79,28 @@ defaults write com.apple.dock persistent-apps -array
 #   Spacer Tile : '{tile-data={}; tile-type="spacer-tile";}'
 #   Recent/Favorite items stack: '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
 # Add a spacer to the left of the Dock
-# defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+function add_app {
+  defaults write com.apple.dock persistent-apps -array-add '{ "tile-data" = { "bundle-identifier" = "$2" } ; "file-data" = { "_CFURLString" : "file:///Applications/$1.app/"; "_CFURLStringType" = 15; }; "file-label" = "$3"; "file-type" = 14; }; "tile-type" = "file-tile"; }'
+}
+add_app "Mattermost" "com.mattermost.desktop" "Mattermost"
+add_app "zoom.us" "us.zoom.os" "Zoom"
+add_app "Firefox%20Developer%20Edition" "org.mozilla.firefoxdeveloperedition" "Firefox Developer Edition"
+add_app "Standard%20Notes" "org.standardnotes.standardnotes" "Standard Notes"
+add_app "Calendar" "com.apple.iCal" "Calendrier"
+add_app "iTerm" "com.googlecode.iterm2" "iTerm2"
+add_app "Mail" "com.apple.mail" "Mail"
+
+defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; "file-label" = "Applications récentes"; }; "tile-type" = "recents-tile"; }'
+defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "arrangement" = 2; "file-data" = { "_CFURLString" : "file://$HOME/Downloads/"; "_CFURLStringType" = 15; }; "file-label" = "Téléchargements"; "file-type" = 2; }; "tile-type" = "directory-tile"; }'
+
+# Restart to see the new dock
+killall Dock
 
 # Display translucent Dock icons for hidden applications
-# defaults write com.apple.dock showhidden -bool true
+defaults write com.apple.dock showhidden -bool false
+
+# Show revents
+defaults write com.apple.dock "show-recents" -bool true
+
+# Lock the Dock contents
+# defaults write com.apple.dock contents-immutable -bool true

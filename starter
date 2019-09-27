@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
+# No sleep during install
+caffeinate -dimsu -w $$
+
+
+
 # Ask for the administrator password upfront
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
 
 # Set global variables
 PREF_FILES=()
@@ -98,7 +107,7 @@ system_preferences=(
   # internet-accounts
   extensions
   app-store
-  # network
+  network
   bluetooth
   sharing
 
@@ -112,7 +121,7 @@ system_preferences=(
   other
   dashboard
   cds-dvds
-  # ssd
+  ssd
 )
 
 for pane in "${system_preferences[@]}"; do
@@ -126,11 +135,12 @@ done
 # Default Apps
 set_prefs activity-monitor "Activity Monitor"
 set_prefs app-store "App Store"
-# set_prefs calendar "Calendar"
+set_prefs calendar "Calendar"
 set_prefs contacts "Contacts"
 set_prefs disk-utility "Disk Utility"
 set_prefs finder "Finder"
 set_prefs font-book "Font Book"
+set_prefs fork "Fork"
 set_prefs iwork "Keynote" "Numbers" "Pages"
 set_prefs mail "Mail"
 set_prefs messages "Messages"
@@ -141,16 +151,30 @@ set_prefs textedit "TextEdit"
 
 # Third Party Apps
 set_prefs adobe
-set_prefs divvy "Divvy"
-set_prefs dropbox "Dropbox"
+#set_prefs divvy "Divvy"
+#set_prefs dropbox "Dropbox"
 set_prefs google-chrome "Google Chrome"
+set_prefs itsycal "Itsycal"
 set_prefs qlcolorcode "Quick Look"
 set_prefs sublime-text "Sublime Text"
 set_prefs transmission "Transmission"
+set_prefs zoomus "zoom.us"
+
+# SSH Key
+if [[ ! -f ".ssh/id_rsa" ]]; then
+  mkdir ~/.ssh 2>/dev/null
+  chmod 700 ~/.ssh
+  echo "Creating an SSH key for you..."
+  ssh-keygen -t rsa -q -b 2048 -N '' -f ~/.ssh/id_rsa
+fi
 
 # Run
 get_open_affected_apps
 source_prefs
 quit_apps
+
+if [ -z "$COMPUTER_NAME" ] || [ -z "$HOST_NAME" ]; then
+  echo "Set COMPUTER_NAME and HOST_NAME then execute system/sharing.sh again" 
+fi
 
 prompt_restart

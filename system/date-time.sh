@@ -5,7 +5,7 @@
 ###############################################################################
 
 # Set the timezone; see `systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "America/New_York" > /dev/null
+sudo systemsetup -settimezone "Europe/Paris" > /dev/null
 
 # Set date and time automatically
 sudo systemsetup -setusingnetworktime on > /dev/null

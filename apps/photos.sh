@@ -7,7 +7,7 @@
 # Startup (with iCloud Photos selected)
 defaults write com.apple.Photos IPXDefaultDidPromoteiCloudPhotosInGettingStarted -bool true
 defaults write com.apple.Photos IPXDefaultHasBeenLaunched -bool true
-defaults write com.apple.Photos IPXDefaultHasChosenToEnableiCloudPhotosInGettingStarted = 1;
+defaults write com.apple.Photos IPXDefaultHasChosenToEnableiCloudPhotosInGettingStarted = 0;
 
 # Summarize photos
 # You can choose compast, summarized views for Collections and Years
@@ -23,4 +23,7 @@ defaults write com.apple.Photos IPXDefaultPlacesPublishPlaceInfo -bool false
 # Print Products Store
 # Choose a store based on your billing address.
 defaults write com.apple.Photos KHStoreCountryExplicitlySetByUserKey -bool true
-defaults write com.apple.Photos KHUserPreferredStoreCountryKey -string 'US'
+defaults write com.apple.Photos KHUserPreferredStoreCountryKey -string 'FR'
+
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true

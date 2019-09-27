@@ -27,15 +27,15 @@ defaults write com.apple.AddressBook ABShortNameStyle -int 2
 defaults write com.apple.AddressBook ABShortNamePrefersNickname -bool true
 
 # Address format
-defaults write com.apple.AddressBook ABDefaultAddressCountryCode -string "us"
+defaults write com.apple.AddressBook ABDefaultAddressCountryCode -string "fr"
 
 # vCard Format
-# falsec: 3.0
+# false : 3.0
 # true  : 2.1
 defaults write com.apple.AddressBook ABUse21vCardFormat -bool false
 
 # Enable private me card
-defaults write com.apple.AddressBook ABPrivateVCardFieldsEnabled -bool false
+defaults write com.apple.AddressBook ABPrivateVCardFieldsEnabled -bool true
 
 # Export notes in vCards
 defaults write com.apple.AddressBook ABIncludeNotesInVCard -bool false

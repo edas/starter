@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# No sleep during install
+caffeinate -dimsu -w $$
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -13,11 +16,11 @@ INSTALLERS=(
   xcode # XCode __must__ be installed before Homebrew
   homebrew # Homebrew __must__ be installed before other tools
   ruby
-  python
+  # python
   node
   shells
-  google-fonts
-  safari-extensions
+  # google-fonts
+  # safari-extensions
 )
 
 # Sources all the preference files

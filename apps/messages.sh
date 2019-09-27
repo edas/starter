@@ -34,4 +34,4 @@ defaults write com.apple.messageshelper.AlertsController SOAlertsAddressMeKey -b
 defaults write com.apple.messageshelper.AlertsController NotifyAboutKnockKnockKey -bool false
 
 # Show all buddy pictures in conversations
-defaults write com.apple.iChat ShowAllBuddyPictures -bool false
+defaults write com.apple.iChat ShowAllBuddyPictures -bool true

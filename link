@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+pushd dotfile
+FILES=*
+for file in FILES; do
+  cp $file "../.$file"
+done;
+popd

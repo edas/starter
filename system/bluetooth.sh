@@ -4,6 +4,9 @@
 # Bluetooth
 ###############################################################################
 
+defaults write com.apple.bluetoothaudiod "Enable AptX codec" -bool true
+defaults write com.apple.bluetoothaudiod "Enable AAC codec" -bool true
+
 # Improve sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 48
@@ -14,3 +17,4 @@ defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 48
 defaults write com.apple.BluetoothAudioAgent "Stream - Flush Ring on Packet Drop (editable)" 30
 defaults write com.apple.BluetoothAudioAgent "Stream - Max Outstanding Packets (editable)" 15
 defaults write com.apple.BluetoothAudioAgent "Stream Resume Delay" "0.75"
+

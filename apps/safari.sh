@@ -34,7 +34,7 @@ defaults write com.apple.Safari DownloadsPath -string '~/Downloads'
 # Save format
 # 0: Page Source
 # 1: Web Archive
-defaults write com.apple.Safari SavePanelFileFormat -int 0
+defaults write com.apple.Safari SavePanelFileFormat -int 1
 
 # Remove downloads list items
 # 0: Manually
@@ -58,28 +58,28 @@ defaults write com.apple.Safari TabCreationPolicy -int 2
 ###############################################################################
 
 # AutoFill using info from my Contacts card
-# defaults write com.apple.Safari AutoFillFromAddressBook -bool true
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
 
 # AutoFill user names and passwords
-# defaults write com.apple.Safari AutoFillPasswords -bool true
+defaults write com.apple.Safari AutoFillPasswords -bool false
 
 # AutoFill credit cards
-# defaults write com.apple.Safari AutoFillCreditCardData -bool true
+defaults write com.apple.Safari AutoFillCreditCardData -bool false
 
 # AutoFill other forms
-# defaults write com.apple.Safari AutoFillMiscellaneousForms -bool true
+defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
 
 # Search
 ###############################################################################
 
 # Include search engine suggestions
-defaults write com.apple.Safari SuppressSearchSuggestions -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
 # Include Spotlight Suggestions
 defaults write com.apple.Safari UniversalSearchEnabled -bool true
 
 # Show Favorites under Smart Search field
-defaults write com.apple.Safari ShowFavoritesUnderSmartSearchField -bool false
+defaults write com.apple.Safari ShowFavoritesUnderSmartSearchField -bool true
 
 # Enable Quick Website Search
 defaults write com.apple.Safari WebsiteSpecificSearchEnabled -bool true
@@ -94,7 +94,7 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 ###############################################################################
 
 # Warn when visiting a fraudulent website
-# defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
 
 # Enable JavaScript
 # defaults write com.apple.Safari WebKitJavaScriptEnabled -bool true
@@ -117,11 +117,11 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 ###############################################################################
 
 # Cookies and website data:
-# 0,2: Alwasy block
+# 0,2: Always block
 # 3,1: Allow from current website only
 # 2,1: Allow from websites I visit
 # 1,0: Alwasy allow
-defaults write com.apple.Safari BlockStoragePolicy -int 2
+defaults write com.apple.Safari BlockStoragePolicy -int 3
 defaults write com.apple.Safari WebKitStorageBlockingPolicy -int 1
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2StorageBlockingPolicy -int 1
 
@@ -174,9 +174,10 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 
 # Show bookmarks bar
 defaults write com.apple.Safari ShowFavoritesBar-v2 -bool false
+defaults write com.apple.Safari ShowFavoritesBar -bool false
 
 # Thumbnail cache for History and Top Sites
-#defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
 # Debug menu
 #defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
@@ -198,10 +199,10 @@ defaults write com.apple.Safari AlwaysShowTabBar -bool false
 defaults write com.apple.Safari ShowStatusBar -bool true
 
 # Disable auto-playing video
-#defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false
-#defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false
-#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
-#defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
+defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false
+defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
+defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
 
 # Disable Webkit Nightly start page
 defaults write org.webkit.nightly.WebKit StartPageDisabled -bool true

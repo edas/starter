@@ -13,11 +13,11 @@ fi
 # This is better than HOMEBREW_AUTO_UPDATE_SECS
 # Consider disabling auto-updates with
 # export HOMEBREW_NO_AUTO_UPDATE=1
-cron_entry='0 */6 * * * /usr/local/bin/brew update &>/dev/null'
-if ! crontab -l | fgrep "$cron_entry" >/dev/null; then
-  (crontab -l 2>/dev/null; echo "$cron_entry") | \
-    crontab -
-fi
+#cron_entry='0 */6 * * * /usr/local/bin/brew update &>/dev/null'
+#if ! crontab -l | fgrep "$cron_entry" >/dev/null; then
+#  (crontab -l 2>/dev/null; echo "$cron_entry") | \
+#    crontab -
+#fi
 
 # Install Homebrew Bundle
 brew tap Homebrew/bundle
@@ -33,6 +33,8 @@ brew update
 
 # Upgrade existing packages
 brew upgrade
+
+brew install mas
 
 # Install CLI tools & GUI applications
 brew bundle --file=installers/homebrew/Brewfile
