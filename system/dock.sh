@@ -91,22 +91,17 @@ killall Dock
 #   Spacer Tile : '{tile-data={}; tile-type="spacer-tile";}'
 #   Recent/Favorite items stack: '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
 # Add a spacer to the left of the Dock
-function add_app {
-  defaults write com.apple.dock persistent-apps -array-add '{ "tile-data" = { "bundle-identifier" = "$2" } ; "file-data" = { "_CFURLString" : "file:///Applications/$1.app/"; "_CFURLStringType" = 15; }; "file-label" = "$3"; "file-type" = 14; }; "tile-type" = "file-tile"; }'
-}
-add_app "Mattermost" "com.mattermost.desktop" "Mattermost"
-add_app "zoom.us" "us.zoom.os" "Zoom"
-add_app "Firefox%20Developer%20Edition" "org.mozilla.firefoxdeveloperedition" "Firefox Developer Edition"
-add_app "Standard%20Notes" "org.standardnotes.standardnotes" "Standard Notes"
-add_app "Calendar" "com.apple.iCal" "Calendrier"
-add_app "iTerm" "com.googlecode.iterm2" "iTerm2"
-add_app "Mail" "com.apple.mail" "Mail"
 
 defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; "file-label" = "Applications récentes"; }; "tile-type" = "recents-tile"; }'
-defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "arrangement" = 2; "file-data" = { "_CFURLString" : "file://$HOME/Downloads/"; "_CFURLStringType" = 15; }; "file-label" = "Téléchargements"; "file-type" = 2; }; "tile-type" = "directory-tile"; }'
+defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 2; "file-label" = "Documents récents"; }; "tile-type" = "recents-tile"; }'
 
-# Restart to see the new dock
 killall Dock
+
+dockutil --add $HOME/Downloads --view fan --display stack --sort dateadded
+
+killall Dock
+# Restart to see the new dock
+
 
 # Display translucent Dock icons for hidden applications
 defaults write com.apple.dock showhidden -bool false
