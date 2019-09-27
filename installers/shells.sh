@@ -5,7 +5,7 @@
 ###############################################################################
 
 # Add shells installed by Homebrew
-sudo bash -c "which zsh bash >> /etc/shells"
+#sudo bash -c "which zsh bash >> /etc/shells"
 
 # Set default shell for the current user
-chsh -s $(which bash)
+# chsh -s $(which bash)

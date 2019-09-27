@@ -126,13 +126,12 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 #   ascd : Date Created
 #   logs : Size
 #   labl : Tags
-/usr/libexec/PlistBuddy \
-    -c "Set :StandardViewOptions:ColumnViewOptions:ColumnShowIcons bool    true" \
-    -c "Set :StandardViewOptions:ColumnViewOptions:ShowPreview     bool    true"  \
-    -c "Set :StandardViewOptions:ColumnViewOptions:ArrangeBy       string  dnam"  \
-    ~/Library/Preferences/com.apple.finder.plist
+#/usr/libexec/PlistBuddy \
+#    -c "Set :StandardViewOptions:ColumnViewOptions:ColumnShowIcons bool    true" \
+#    -c "Set :StandardViewOptions:ColumnViewOptions:ShowPreview     bool    true"  \
+#    -c "Set :StandardViewOptions:ColumnViewOptions:ArrangeBy       string  dnam"  \
 #    -c "Set :StandardViewOptions:ColumnViewOptions:FontSize        integer 11"    \
-
+#    ~/Library/Preferences/com.apple.finder.plist
 
 # New window target
 # Computer     : `PfCm`

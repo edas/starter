@@ -4,7 +4,7 @@
 # Node
 ###############################################################################
 
-NVM_DIR="$HOME./nvm"
+NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" 
 
 nvm install --latest-npm

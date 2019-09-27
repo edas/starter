@@ -15,6 +15,7 @@ sudo softwareupdate -ia --verbose
 INSTALLERS=(
   xcode # XCode __must__ be installed before Homebrew
   homebrew # Homebrew __must__ be installed before other tools
+  xcode
   ruby
   # python
   node
@@ -31,5 +32,5 @@ function source_installers {
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
   done;
 }
-
 source_installers INSTALLERS[@] "installers/"
+

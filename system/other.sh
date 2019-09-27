@@ -5,10 +5,10 @@
 ###############################################################################
 
 # Menu bar: hide the Time Machine, User icons
-defaults -currentHost write dontAutoLoad -array \
-    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-    "/System/Library/CoreServices/Menu Extras/User.menu" \
-    "/System/Library/CoreServices/Menu Extras/Clock.menu"
+defaults -currentHost write dontAutoLoad -array
+defaults -currentHost write dontAutoLoad -array-add "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
+defaults -currentHost write dontAutoLoad -array-add "/System/Library/CoreServices/Menu Extras/User.menu"
+defaults -currentHost write dontAutoLoad -array-add "/System/Library/CoreServices/Menu Extras/Clock.menu"
 defaults write com.apple.systemuiserver menuExtras -array \
     "/System/Library/CoreServices/Menu Extras/Volume.menu" \
     "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
@@ -113,7 +113,7 @@ defaults -currentHost write com.apple.ImageCapture2 HotPlugActionPath -string ''
 for app in /System/Library/CoreServices/Applications/* \
            /Applications/Xcode.app/Contents/Applications/* \
            /Applications/Xcode.app/Contents/Developer/Applications/*; do
-  sudo ln -s "$app" /Applications/Utilities/
+  [ -e "$app" ] && sudo ln -s "$app" /Applications/Utilities/
 done
 
 hidden_apps=(
@@ -159,7 +159,7 @@ sudo ln -s /System/Library/PrivateFrameworks/CoreRecognition.framework/Resources
 # defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers \
 #   -array-add "{LSHandlerContentType=${content_ype};LSHandlerRoleAll=${bundle_id};}"
 
-if [ -x "/usr/local/bin/duti" && "${HOME}/.duti"]; then
+if [ -x "/usr/local/bin/duti" ] && [ -x "${HOME}/.duti" ]; then
   /usr/local/bin/duti "${HOME}/.duti"
 fi
 

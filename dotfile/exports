@@ -2,20 +2,24 @@ if [ -e "/usr/local/sbin" ]; then
   PATH=/usr/local/sbin:$PATH
 fi
 
+
+
 if type "brew" > /dev/null; then
-  PATH=`$(brew --prefix coreutils)/libexec/gnubin`:$PATH
-    source $(brew --prefix)/etc/bash_completion
+  PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+fi
+
+if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then
+  . "/usr/local/etc/profile.d/bash_completion.sh"
 fi
 
 if type "go" > /dev/null; then
-  PATH=`$(go env GOPATH)/bin`:$PATH
+  PATH=$(go env GOPATH)/bin:$PATH
 fi
 
-if type "nvm" > /dev/null; then
-  NVM_DIR="$HOME./nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" 
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion" 
-fi
+NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" 
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion" 
+
 
 if [ -e "/usr/local/opt/ruby" ]; then
   PATH=/usr/local/opt/ruby/bin:$PATH

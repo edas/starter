@@ -8,5 +8,5 @@ done;
 popd
 
 
-echo '[ -f ~/.exports] && . ~/exports' >> ~/.profile
-echo '[ -f ~/.alias] && . ~/alias' >> ~/.profile
+echo '[ -f ~/.exports ] && . ~/.exports' >> ~/.profile
+echo '[ -f ~/.alias ] && . ~/.alias' >> ~/.profile

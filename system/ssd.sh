@@ -4,9 +4,6 @@
 # SSD Optimizations
 ###############################################################################
 
-# Disable local Time Machine snapshots
-hash tmutil &> /dev/null && sudo tmutil disablelocal
-
 # Disable hard disk sleep
 sudo pmset -c disksleep 0
 

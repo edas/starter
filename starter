@@ -160,6 +160,11 @@ set_prefs sublime-text "Sublime Text"
 set_prefs transmission "Transmission"
 set_prefs zoomus "zoom.us"
 
+# Run
+get_open_affected_apps
+source_prefs
+quit_apps
+
 # SSH Key
 if [[ ! -f ".ssh/id_rsa" ]]; then
   mkdir ~/.ssh 2>/dev/null
@@ -167,11 +172,6 @@ if [[ ! -f ".ssh/id_rsa" ]]; then
   echo "Creating an SSH key for you..."
   ssh-keygen -t rsa -q -b 2048 -N '' -f ~/.ssh/id_rsa
 fi
-
-# Run
-get_open_affected_apps
-source_prefs
-quit_apps
 
 if [ -z "$COMPUTER_NAME" ] || [ -z "$HOST_NAME" ]; then
   echo "Set COMPUTER_NAME and HOST_NAME then execute system/sharing.sh again" 
