@@ -1,1 +1,35 @@
-PATH=~/bin:`$(brew --prefix coreutils)/libexec/gnubin`:$PATH
+if [ -f "/usr/local/sbin" ]; then
+  PATH=/usr/local/sbin:$PATH
+fi
+
+if type "brew" > /dev/null; then
+  PATH=`$(brew --prefix coreutils)/libexec/gnubin`:$PATH
+    source $(brew --prefix)/etc/bash_completion
+fi
+
+if type "go" > /dev/null; then
+  PATH=`$(go env GOPATH)/bin`:$PATH
+fi
+
+if type "nvm" > /dev/null; then
+  NVM_DIR="$HOME./nvm"
+  source "/usr/local/opt/nvm/nvm.sh"
+fi
+
+if [ -f "/usr/local/opt/ruby" ]; then
+  PATH=/usr/local/opt/ruby/bin:$PATH
+  LDFLAGS="-L/usr/local/opt/ruby/lib $LDFLAGS"
+  CPPFLAGS="-I/usr/local/opt/ruby/include $CPPFLAGS"
+  PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
+
+if [ -f "~/bin" ]; then
+  PATH=~/bin:$PATH
+fi
+
+export PATH
+export NVM_DIR
+export LDFLAGS
+export CPPFLAGS
+export PKG_CONFIG_PATH
+
