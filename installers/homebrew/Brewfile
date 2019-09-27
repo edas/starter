@@ -26,7 +26,7 @@ brew "antigen"
 # Note: This replaces some (outdated) built-in macOS utilities with the GNU equivalents
 # Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew "coreutils"
-brew "curl", args: ["with-nghttp2"]
+brew "curl-openssl"
 #brew "findutils" # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 brew "git"
 brew "gnupg" 
