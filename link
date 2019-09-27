@@ -3,7 +3,7 @@
 pushd dotfile
 FILES=*
 for file in $FILES; do
-  cp $file "../.$file"
+  cp $file "~/.$file"
 done;
 popd
 
