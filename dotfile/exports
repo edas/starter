@@ -1,4 +1,4 @@
-if [ -f "/usr/local/sbin" ]; then
+if [ -e "/usr/local/sbin" ]; then
   PATH=/usr/local/sbin:$PATH
 fi
 
@@ -16,14 +16,14 @@ if type "nvm" > /dev/null; then
   source "/usr/local/opt/nvm/nvm.sh"
 fi
 
-if [ -f "/usr/local/opt/ruby" ]; then
+if [ -e "/usr/local/opt/ruby" ]; then
   PATH=/usr/local/opt/ruby/bin:$PATH
   LDFLAGS="-L/usr/local/opt/ruby/lib $LDFLAGS"
   CPPFLAGS="-I/usr/local/opt/ruby/include $CPPFLAGS"
   PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig:$PKG_CONFIG_PATH"
 fi
 
-if [ -f "~/bin" ]; then
+if [ -e "~/bin" ]; then
   PATH=~/bin:$PATH
 fi
 
