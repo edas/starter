@@ -68,9 +68,21 @@ defaults write com.apple.dock 'checked-for-launchpad' -bool true
 defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock persistent-others -array
 
+killall Dock
+
 # Show only open applications in Dock
 # defaults write com.apple.dock static-only -bool true
 
+
+dockutil --add /Applications/Mattermost.app --no-restart
+dockutil --add /Applications/zoom.us.app --no-restart
+dockutil --add "/Applications/Firefox Developer Edition.app" --no-restart
+dockutil --add "/Applications/Standard Notes.app" --no-restart
+dockutil --add /Applications/Calendar.app --no-restart
+dockutil --add /Applications/iTerm.app --no-restart
+dockutil --add /Applications/Mail.app --no-restart
+
+killall Dock
 # Add special items to the Dock
 # Keys:
 #   persistent-apps: left side of the Dock

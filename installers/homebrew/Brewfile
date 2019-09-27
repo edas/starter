@@ -48,6 +48,7 @@ brew "mackup"
 brew "tccutil" # Required for setting preferences
 brew "trash"
 brew "wifi-password"
+brew "dockutil"
 
 # Programming languages
 # Installing Python/Ruby with Homebrew is unnecessary,
