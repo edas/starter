@@ -177,4 +177,6 @@ if [ -z "$COMPUTER_NAME" ] || [ -z "$HOST_NAME" ]; then
   echo "Set COMPUTER_NAME and HOST_NAME then execute system/sharing.sh again" 
 fi
 
+cp bin/* ~/bin
+
 prompt_restart

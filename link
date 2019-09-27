@@ -2,10 +2,10 @@
 
 pushd dotfile
 FILES=*
-for file in FILES; do
+for file in $FILES; do
   cp $file "../.$file"
 done;
 popd
 
-echo "[ -f "~/.exports] && . ~/exports" >> ~/.profile
-echo "[ -f "~/.alias] && . ~/alias" >> ~/.profile
+echo '[ -f "~/.exports"] && . ~/exports' >> ~/.profile
+echo '[ -f "~/.alias"] && . ~/alias' >> ~/.profile
