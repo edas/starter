@@ -2,9 +2,7 @@
 
 # curl -fsSL https://raw.githubusercontent.com/edas/starter/master/remote-exec.sh | /usr/bin/env bash
 
-mkdir starter-install
-pushd starter-install
-wget https://github.com/edas/starter/archive/master.zip
-unzip master.zip
+curl https://github.com/edas/starter/archive/master.zip -L -o starter-master.zip
+unzip starter-master.zip
 pushd starter-master
-./link && ./install && ./starter && popd && popd && rm -rf starter-install
+./link && ./install && ./starter && popd && rm -rf starter-master*
