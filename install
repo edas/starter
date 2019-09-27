@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # No sleep during install
-caffeinate -dimsu -w $$
+caffeinate -dimsu -w $$ &
 
 # Ask for the administrator password upfront
 sudo -v
