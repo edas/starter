@@ -19,7 +19,7 @@ defaults write NSGlobalDomain AppleHighlightColor -string '0.709800 0.835300 1.0
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 # Automatically hide and show the menu bar
-defaults write NSGlobalDomain "_HIHideMenuBar" -bool true
+defaults write NSGlobalDomain "_HIHideMenuBar" -bool false
 
 # Sidebar icon size
 # Small  : 1
