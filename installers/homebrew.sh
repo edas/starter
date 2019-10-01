@@ -8,7 +8,10 @@
 if ! hash brew 2>/dev/null; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 fi
-sudo xcodebuild -licence accept
+# Accept the Xcode/iOS license agreement
+if ! $(sudo xcodebuild -license status); then
+  sudo xcodebuild -license accept
+fi
 
 # Schedule Homebrew Updates
 # This is better than HOMEBREW_AUTO_UPDATE_SECS
@@ -42,3 +45,8 @@ brew bundle --file=installers/homebrew/Brewfile
 
 # Remove outdated versions from the cellar including casks
 brew cleanup && brew prune
+
+# Accept the Xcode/iOS license agreement
+if ! $(sudo xcodebuild -license status); then
+  sudo xcodebuild -license accept
+fi
