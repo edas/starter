@@ -27,7 +27,6 @@ brew "antigen"
 # Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew "coreutils"
 brew "curl-openssl"
-brew "ext4fuse"
 #brew "findutils" # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 brew "git"
 brew "gnupg" 
@@ -138,6 +137,9 @@ cask "font-symbola"
 cask "font-fira-code"
 cask "font-source-code-pro"
 cask "skyfonts"
+
+# needs cask osxfuse
+brew "ext4fuse" 
 
 # MAS applications
 # Get a list of installed MAS apps with:
