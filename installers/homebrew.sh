@@ -8,6 +8,7 @@
 if ! hash brew 2>/dev/null; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 fi
+sudo xcodebuild -licence accept
 
 # Schedule Homebrew Updates
 # This is better than HOMEBREW_AUTO_UPDATE_SECS
